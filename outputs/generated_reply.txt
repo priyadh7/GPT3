@@ -1,0 +1,164 @@
+
+Date: 2026-10-24 12:17:51
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Reply:
+Dear Priya,
+
+We sincerely apologize for the delay in your delivery. Our team is looking into this matter and will provide you with an update as soon as possible.
+
+Best regards,
+Customer Support Team
+Summary: The customer is experiencing a delay with their order, as it has not arrived yet.
+--------------------------------------------------
+
+Date: 2026-10-24 12:19:46
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Reply:
+Hi Priya,
+
+Thank you for reaching out to us about the delay in your delivery. We sincerely apologize for the inconvenience this has caused and appreciate your patience as we work to resolve the issue.
+
+We are looking into the matter and will provide you with an update as soon as possible.
+
+Best regards,
+[Your Name]
+Summary: Customer issue: Order has not been delivered yet.
+--------------------------------------------------
+
+Date: 2026-10-24 12:20:08
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Reply:
+Hi Priya,
+
+We're so sorry to hear that your package hasn't arrived yet. We're here to help, and our team is committed to getting it to you as soon as possible.
+
+We're currently investigating the situation, and I'll make sure to pass on your concerns to our logistics team. We'll keep you updated on any developments and will be in touch with you as soon as we have any information.
+
+If you could please keep an eye on your email for any updates, I'd appreciate it. Your patience and understanding are greatly appreciated.
+
+Best regards,
+[Your Name]
+Summary: The customer is waiting for their order, which has not arrived yet.
+--------------------------------------------------
+
+Date: 2026-10-24 12:20:09
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Reply:
+Dear Priya,
+
+We sincerely apologize for the delay in your package delivery. We understand the frustration and inconvenience this has caused, and we're committed to getting your order to you as soon as possible. We're working diligently to resolve the issue and will keep you updated on the status of your delivery.
+
+If there's anything we can do to make up for the delay or if you have any questions, please don't hesitate to reach out. We're here to help.
+
+Thank you for your patience and understanding.
+
+Best regards,
+[Your Name]
+Summary: Customer reported that their order has not arrived yet, indicating a delay or potential shipping issue.
+--------------------------------------------------
+
+Date: 2026-10-24 12:20:10
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Reply:
+Hi Priya,
+
+We apologize for the delay in your delivery. Our logistics team is working hard to locate your package. We'll be in touch with an update as soon as possible.
+
+Best regards,
+[Your Name]
+Summary: Customer is awaiting delivery of their order, but it has not yet arrived.
+--------------------------------------------------
+
+Date: 2026-10-24 12:25:12
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Generated Reply:
+Subject: Re: Delivery Delay
+
+Dear Priya,
+
+Thank you for reaching out to us about the delay in your order. We understand how frustrating it can be when there's an issue with delivery, and we're here to help.
+
+Our team is actively working to resolve the issue, and we're committed to getting your order to you as soon as possible. We'll continue to work closely with our logistics partners to expedite the delivery process.
+
+If you have any further questions or concerns, please don't hesitate to reach out. We appreciate your patience and understanding in this matter, and we'll keep you updated on any progress.
+
+Thank you for your business, and we look forward to getting your order to you soon.
+
+Best regards,
+[Your Name]
+Summary: Customer's main concern: Order has not arrived.
+Requested action: The customer would like their order to be delivered or an alternative solution to be provided.
+------------------------------------------------------------
+
+Date: 2026-10-24 12:25:45
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Generated Reply:
+Dear Priya,
+
+We're so sorry to hear that your order has not arrived yet. We understand how frustrating this can be, and we want to assure you that we're here to help.
+
+We've already reached out to our logistics team to investigate the issue, and we're following up on the status of your shipment. We'll keep you updated on any developments and will let you know as soon as your package is on its way.
+
+If you have any questions or concerns, please don't hesitate to reach out to us. We're more than happy to help in any way we can.
+
+Thank you for your patience, and we look forward to getting your order to you soon.
+
+Best regards,
+[Your Name]
+Summary: Main concern: Order has not arrived yet.
+Requested action: None specified.
+------------------------------------------------------------
+
+Date: 2026-10-24 12:25:47
+Customer: Priya
+Subject: Delivery Delay
+Customer Email: My order has not arrived yet.
+Intent: Delivery Issue
+Tone: Friendly
+Generated Reply:
+Subject: Re: Delivery Delay - Update on Your Order
+
+Dear Priya,
+
+Thank you for reaching out to us about the delay with your order. We're so sorry to hear that your package hasn't arrived yet. We understand how frustrating this can be, and we're here to help.
+
+We're doing our best to locate the issue and get your package to you as soon as possible. Our logistics team is working diligently to resolve the matter, and we'll be in touch with you within 24 hours with an update on the status of your shipment.
+
+In the meantime, if you have any further questions or concerns, please don't hesitate to contact us. We're always here to help.
+
+Thank you for your patience and understanding.
+
+Best regards,
+[Your Name]
+Summary: Customer's issue: Order has not arrived yet.
+Main concern: Delayed delivery.
+Requested action: Not specified in the message.
+------------------------------------------------------------

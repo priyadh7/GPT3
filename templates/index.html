@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligent Email Assistant</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 35px 20px;
+    background: white;
+    color: #202124;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 820px;
+    margin: auto;
+    padding: 16px;
+    background: #f3f5f7;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+header h1 {
+    font-size: 23px;
+    margin: 0 0 8px;
+}
+
+.subtitle {
+    color: #667085;
+    font-size: 12px;
+}
+
+.card {
+    background: white;
+    border-radius: 11px;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 10px #0000000b;
+}
+
+h2 {
+    font-size: 17px;
+    margin: 0 0 15px;
+}
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 12px 0 6px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d9dde3;
+    border-radius: 6px;
+    background: white;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+textarea {
+    min-height: 95px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: 1px solid #2563eb;
+    border-color: #2563eb;
+}
+
+button {
+    width: 100%;
+    padding: 11px;
+    margin-top: 14px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background: #2860ed;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover { background: #174bd0; }
+
+.badge {
+    display: inline-block;
+    padding: 7px 13px;
+    background: #e0ecff;
+    border-radius: 18px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.output-box {
+    padding: 18px;
+    background: #f6f7f9;
+    border-radius: 7px;
+    font-size: 12px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.reply-box {
+    border-left: 3px solid #2860ed;
+}
+
+.small-label {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 12px 0 7px;
+}
+
+.score {
+    font-size: 12px;
+    margin-top: 14px;
+}
+
+.error {
+    background: #fff0f0;
+    color: #b42318;
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    color: #77808e;
+    font-size: 11px;
+    padding: 12px;
+}
+
+@media (max-width: 600px) {
+    body { padding: 12px 8px; }
+    .container { padding: 10px; }
+    header h1 { font-size: 20px; }
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+<header>
+    <h1>✉ Intelligent Email Assistant</h1>
+    <div class="subtitle">
+        AI-powered customer email reply generator using Ollama
+    </div>
+</header>
+
+<section class="card">
+    <h2>Customer Email</h2>
+
+    <form method="POST">
+        <label for="name">Customer Name</label>
+        <input id="name" name="name"
+               value="{{ request.form.get('name', 'Agnes') }}"
+               placeholder="Enter customer name" required>
+
+        <label for="subject">Email Subject</label>
+        <input id="subject" name="subject"
+               value="{{ request.form.get('subject', 'Delivery Delay') }}"
+               placeholder="Enter email subject" required>
+
+        <label for="email">Customer Email</label>
+        <textarea id="email" name="email"
+                  placeholder="Enter customer message"
+                  required>{{ request.form.get('email', 'My order has not arrived yet.') }}</textarea>
+
+        <label for="tone">Select Tone</label>
+        <select id="tone" name="tone">
+            {% for tone_option in tones %}
+            <option value="{{ tone_option }}"
+                {% if request.form.get('tone', 'Friendly') == tone_option %}
+                selected
+                {% endif %}>
+                {{ tone_option }}
+            </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Generate Reply</button>
+    </form>
+</section>
+
+{% if error %}
+<section class="error">{{ error }}</section>
+{% endif %}
+
+{% if result %}
+
+<section class="card">
+    <h2>🎯 Detected Intent</h2>
+    <span class="badge">{{ result.intent }}</span>
+</section>
+
+<section class="card">
+    <h2>🔎 Similar Previous Email</h2>
+
+    <div class="small-label">Previous Email:</div>
+    <div class="output-box">{{ result.previous_email or
+        'No previous email available.' }}</div>
+
+    <div class="small-label">Previous Reply:</div>
+    <div class="output-box">{{ result.previous_reply or
+        'No previous reply available.' }}</div>
+
+    <div class="score">
+        <strong>Similarity Score:</strong>
+        {{ "%.2f"|format(result.similarity) }}
+    </div>
+</section>
+
+<section class="card">
+    <h2>🤖 Generated Reply</h2>
+    <div class="output-box reply-box" id="generatedReply">{{ result.reply }}</div>
+
+    <button type="button" onclick="copyReply()">Copy Reply</button>
+
+    <p class="subtitle">Selected tone: {{ result.tone }}</p>
+</section>
+
+<section class="card">
+    <h2>📝 Conversation Summary</h2>
+    <div class="output-box">{{ result.summary }}</div>
+</section>
+
+<section class="card">
+    <h2>💾 Save Reply</h2>
+    <p style="font-size:12px; line-height:1.6">
+        Your generated reply, customer email, detected intent, tone,
+        date and summary have been saved to
+        <strong>outputs/generated_reply.txt</strong>.
+    </p>
+</section>
+
+{% endif %}
+
+<footer>Intelligent Email Assistant · Powered by Ollama</footer>
+</main>
+
+<script>
+function copyReply() {
+    const text = document.getElementById("generatedReply").innerText;
+    navigator.clipboard.writeText(text)
+        .then(() => alert("Reply copied successfully!"))
+        .catch(() => alert("Unable to copy. Please select and copy the reply."));
+}
+</script>
+</body>
+</html>
